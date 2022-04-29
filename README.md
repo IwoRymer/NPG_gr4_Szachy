@@ -3,12 +3,12 @@
 Pliki są zainkludowane w sposób:
 main <- App <- board <- pieces 
 
-App.cpp plik z głonwymi funkcjiami aplikacji:
-- init() - będzie tworzyć figury i usawi je na planszy
+App.cpp plik z głównymi funkcjami aplikacji:
+- init() - będzie tworzyć figury i ustawiać na planszy
 - run() - przebieg gry
 - end() - zakończenie gry
 
-Board posiada funkcjie zwiazane z planszą da gry:
+Board posiada funkcje zwiazane z planszą do gry:
 - print() - wyświetla plansze
 
 Plik piece.hpp zawiera:
@@ -16,6 +16,7 @@ Plik piece.hpp zawiera:
 - enum Color
 - klase abstrakcyjną Piece
 
-Struktura Position zawiera składowe x, y reprezentujące pozycje na planszy.
-Typ wyliczeniowy Color określa color figury: white, black.
+Struktura Position zawiera składowe x, y reprezentujące pozycje na planszy(kolejnośc według ukałdu
+współrzędnych y - wiersz, x - kolumna).
+Typ wyliczeniowy Color określa kolor figury: white, black.
 Klasa abstrakcyjna definuje interfejs dla figur.
