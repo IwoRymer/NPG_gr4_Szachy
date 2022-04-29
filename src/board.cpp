@@ -13,6 +13,8 @@ char board::board[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
                            {'-', '-', '-', '-', '-', '-', '-', '-'}
 };
 
+std::vector<Piece*> vecPiece;
+
 void board::print(){
     //char box1 = whiteBox, box2 = ' ';
     char numberOfColumn;

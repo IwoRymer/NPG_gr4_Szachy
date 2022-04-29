@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include <map>
 
 #include "Piece.hpp"
 #include "pieces/Rook.hpp"
@@ -14,7 +15,7 @@ namespace board{
     // the chessboard
     extern char board[8][8];
 
-    std::vector<Piece*> vecPiece;
+    extern std::vector<Piece*> vecPiece;
 
     // ASCII code
     // const char whiteBox = 219;
