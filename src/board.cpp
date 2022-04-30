@@ -1,8 +1,16 @@
 #include "../include/board.hpp"
+#include "../include/SDL2/SDL.h"
+#include "Graphics.hpp"
 #include <iostream>
 #include <sstream>
 #include <cctype>
 
+void board::init(){
+    window::init();
+    window::loadMedia();
+    SDL_BlitSurface( window::gHelloWorld, NULL, window::gScreenSurface, NULL );
+    SDL_UpdateWindowSurface( window::gWindow );
+}
 
 void board::print(){
     //char box1 = whiteBox, box2 = ' ';

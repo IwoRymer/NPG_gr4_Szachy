@@ -10,10 +10,12 @@
 #include "Piece.hpp"
 #include "pieces/Rook.hpp"
 #include "globalVariables.h"
+#include "SDL2/SDL_image.h"
 
 
 namespace board{
 
+    void init();
     // prints out the board
     void print();
 

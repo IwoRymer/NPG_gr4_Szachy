@@ -3,6 +3,8 @@
 Pliki są zainkludowane w sposób:
 main <- App <- board <- pieces 
 
+Korzystamy z zewnętrznej biliblioteki SDL2
+
 App.cpp plik z głównymi funkcjami aplikacji:
 - init() - będzie tworzyć figury i ustawiać na planszy
 - run() - przebieg gry
