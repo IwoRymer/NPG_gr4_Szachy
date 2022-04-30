@@ -13,7 +13,6 @@ char board::board[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
                            {'-', '-', '-', '-', '-', '-', '-', '-'}
 };
 
-std::vector<Piece*> vecPiece;
 
 void board::print(){
     //char box1 = whiteBox, box2 = ' ';
@@ -40,5 +39,9 @@ void board::print(){
         }
         std::cout << std::endl;
     }
+}
+
+void board::updateBoard(const Piece &p){
+    board::board[p.getPosition().yPos][p.getPosition().xPos] = p.getSymbol();
 }
 

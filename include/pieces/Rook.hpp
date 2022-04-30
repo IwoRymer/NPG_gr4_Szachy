@@ -4,6 +4,7 @@
 #include "../Piece.hpp"
 
 class Rook : public Piece{
+public:
     // konstruktor
     Rook(int x, int y, Color c);
 
