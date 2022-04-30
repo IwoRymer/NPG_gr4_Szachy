@@ -10,6 +10,7 @@ App.cpp plik z głównymi funkcjami aplikacji:
 
 Board posiada funkcje zwiazane z planszą do gry:
 - print() - wyświetla plansze
+- 
 
 Plik piece.hpp zawiera:
 - strukture Position 
