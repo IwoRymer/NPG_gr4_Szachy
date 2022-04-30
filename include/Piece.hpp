@@ -14,9 +14,10 @@ enum Color{ white = 0, black};
 
 class Piece{
 public:
+    // first x, y cordinate
     Piece(int x, int y, Color c): position_(x, y), color_{c} {}
 
-    virtual bool move(const Position &position) = 0;
+    //virtual bool move(const Position &position) = 0;
 
     // Getters
     Position getPosition() const{ return position_;}
@@ -27,14 +28,14 @@ public:
 
     virtual ~Piece() = default;
 
-protected:
-    bool colllisonInLine(const std::vector<Piece*> &vec, const Position &newPos) const;
+    // zwraca true gdy jest kolizja
+    bool colllisonInLine(char (&board)[8][8], const Position &newPos) const;
 
-protected:
+private:
     Position position_;
-    char symbol_;
     Color color_;
-
+protected:
+    char symbol_;
 };
 
 
