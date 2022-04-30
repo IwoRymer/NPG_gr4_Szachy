@@ -3,16 +3,6 @@
 #include <sstream>
 #include <cctype>
 
-char board::board[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'},
-                           {'-', '-', '-', '-', '-', '-', '-', '-'}
-};
-
 
 void board::print(){
     //char box1 = whiteBox, box2 = ' ';
@@ -32,16 +22,16 @@ void board::print(){
             }
             else{
                 if( (j-1) % 2 == 0)
-                    std::cout << board[i][j-1] << ' ';
+                    std::cout << chessBoard[i][j-1] << ' ';
                 else
-                    std::cout << board[i][j-1] << ' ';
+                    std::cout << chessBoard[i][j-1] << ' ';
             }
         }
         std::cout << std::endl;
     }
 }
 
-void board::updateBoard(const Piece &p){
-    board::board[p.getPosition().yPos][p.getPosition().xPos] = p.getSymbol();
+void board::update(const Piece &p){
+    chessBoard[p.getPosition().yPos][p.getPosition().xPos] = p.getSymbol();
 }
 

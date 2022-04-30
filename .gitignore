@@ -1,2 +1,10 @@
 /.idea/
-/cmake-build-debug/
+/cmake-build-debug/.cmake/api/v1/
+/cmake-build-debug/CMakeFiles/
+/cmake-build-debug/Testing/Temporary/
+/cmake-build-debug/.ninja_deps
+/cmake-build-debug/.ninja_log
+/cmake-build-debug/build.ninja
+/cmake-build-debug/Chess.exe
+/cmake-build-debug/cmake_install.cmake
+/cmake-build-debug/CMakeCache.txt

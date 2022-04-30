@@ -8,8 +8,10 @@ public:
     // konstruktor
     Rook(int x, int y, Color c);
 
+    bool move(const Position &position) override;
 
-    //static bool isValidMove(const Rook &rook, const std::vector<Piece*> &vec);
+    // zasady ruchu wiezy
+    static bool isValidMove(const Rook &rook, const Position &position);
 };
 
 
