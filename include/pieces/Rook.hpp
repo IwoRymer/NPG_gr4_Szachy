@@ -7,13 +7,8 @@ class Rook : public Piece{
     // konstruktor
     Rook(int x, int y, Color c);
 
-    Color getColor() const override{ return color_;}
 
-    //static bool isValidMove(const Rook &rook);
-private:
-    Position position_;
-    Color color_;
-    char symbol_;
+    //static bool isValidMove(const Rook &rook, const std::vector<Piece*> &vec);
 };
 
 
