@@ -3,6 +3,7 @@
 
 // sprawdzone dziala, sprwadza czy pomiedzy ruchem w lini znajdują sie jakieś figury
 // nie sprawdza czy zbija figure
+/*
 bool Piece::colllisonInLine(const Position &newPos) const{
     int dX = this->getPosition().xPos != newPos.xPos;
     int start, end;
@@ -29,3 +30,4 @@ bool Piece::colllisonInLine(const Position &newPos) const{
 bool Piece::collisonInDiagonal(const Position &newPos) const {
     return false;
 }
+*/

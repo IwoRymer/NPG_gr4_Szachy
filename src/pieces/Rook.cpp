@@ -2,6 +2,7 @@
 
 Rook::Rook(int x, int y, Color c): Piece(x, y , c){
     symbol_ = (this->getColor() == white ? 'r' : 'R');
+    path_ = (this->getColor() == white ? "../graphics/Chess_rlt60.png" : "../graphics/Chess_rdt60.png");
 }
 
 bool Rook::isValidMove(const Rook &rook, const Position &newPosition){

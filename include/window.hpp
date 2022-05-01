@@ -25,6 +25,12 @@ public:
     // pola jako liczby od 0 -> 63
     void drawPNG(int pos, const std::string &path);
 
+    void undoPieceRender(int x, int y);
+
+    void movePNG(const Position oldPos, const Position newPos, const std::string &path);
+
+    void clean(){ SDL_RenderClear(renderer);}
+
     ~Window();
 
 public:

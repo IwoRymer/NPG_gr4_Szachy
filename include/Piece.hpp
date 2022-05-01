@@ -13,23 +13,26 @@ public:
 
     virtual bool move(const Position &position) = 0;
 
+    void changePosition(Position pos){ position_ = pos;}
     // Getters
     Position getPosition() const{ return position_;}
+    int getXPosition() const{ return position_.xPos;}
+    int getYPosition() const{ return position_.yPos;}
+
     char getSymbol() const{ return symbol_;}
     Color getColor() const{ return color_;}
+    std::string getPath() const{ return path_;}
 
     virtual bool isKing() const { return false;}
 
     virtual ~Piece() = default;
 
-    // zwraca true gdy jest kolizja
-    bool colllisonInLine(const Position &newPos) const;
-    bool collisonInDiagonal(const Position &newPos) const;
 private:
     Position position_;
     Color color_;
 protected:
     char symbol_;
+    std::string path_;
 };
 
 

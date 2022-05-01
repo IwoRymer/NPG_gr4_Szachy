@@ -38,6 +38,7 @@ void Window::drawBackground() {
 
 //działa dobrze
 void Window::drawPNG(int pos, const std::string &path) {
+    std::cout << "drawPNG pos= "<< pos << std::endl;
     SDL_Rect rectangle;
     rectangle.w = SCREEN_WIDTH / 8;
     rectangle.h = SCREEN_HEIGHT / 8;
@@ -51,10 +52,43 @@ void Window::drawPNG(int pos, const std::string &path) {
         std::cout << "Image not loaded path:" << path.c_str() << std::endl;
     }
     SDL_Texture *ourPNG = SDL_CreateTextureFromSurface(renderer, loadedImage);
+    SDL_FreeSurface(loadedImage);
     SDL_RenderCopy(renderer, ourPNG, NULL, &rectangle);
     SDL_RenderPresent(renderer);
 }
 
+void Window::movePNG(const Position oldPos, const Position newPos, const std::string &path){
+    SDL_Surface *loadedImage = NULL;
+    loadedImage = IMG_Load(path.c_str());
+    if (!loadedImage) {
+        std::cout << "Image not loaded path:" << path.c_str() << std::endl;
+    }
+    SDL_Texture *ourPNG = SDL_CreateTextureFromSurface(renderer, loadedImage);
+    SDL_FreeSurface(loadedImage);
+    SDL_Rect rNew = {newPos.xPos * 80, newPos.yPos * 80, 80, 80};
+    SDL_Rect rOld = {oldPos.xPos * 80, oldPos.yPos * 80, 80, 80};
+
+    SDL_RenderCopy(renderer, ourPNG, NULL, &rNew);
+}
+void Window::undoPieceRender(int x, int y)
+{
+    if ((x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1))
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(renderer, 155, 103, 60, 255);
+    }
+    SDL_Rect rectangle = { x * SCREEN_WIDTH / 8,
+                           y * SCREEN_HEIGHT / 8,
+                           SCREEN_WIDTH / 8,
+                           SCREEN_HEIGHT / 8 };
+    SDL_RenderFillRect(renderer, &rectangle);
+
+    SDL_RenderPresent(renderer);
+    SDL_UpdateWindowSurface(window);
+}
 
 Window::~Window() {
     SDL_DestroyWindow(window);
