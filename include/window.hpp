@@ -1,7 +1,6 @@
 #ifndef CHESS_BOARD_HPP
 #define CHESS_BOARD_HPP
 
-#include "window.hpp"
 #include "SDL2/SDL.h"
 #include <SDL2/SDL_image.h>
 #include <string>
@@ -13,24 +12,28 @@
 
 class Window{
 public:
+    // Stałe rozmiary obrazu
     const int SCREEN_WIDTH = 640;
     const int SCREEN_HEIGHT = 640;
 
+    // powinien byc konstruktor ale trudno
     void init();
 
-    // rysuje szachownice
+    // rysuje kolory na szachownicy
     void drawBackground();
 
     // Rysuje figury na szchownicy
     // pola jako liczby od 0 -> 63
+    // tak wiem  glupie
     void drawPNG(int pos, const std::string &path);
 
+    // zmazuje teksture figury
     void undoPieceRender(int x, int y);
 
+    // Kopiuje
     void movePNG(const Position oldPos, const Position newPos, const std::string &path);
 
-    void clean(){ SDL_RenderClear(renderer);}
-
+    // wyczyszcza textury i zwalnia pamięć
     ~Window();
 
 public:

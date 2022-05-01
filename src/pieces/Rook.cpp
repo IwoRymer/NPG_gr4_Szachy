@@ -5,6 +5,7 @@ Rook::Rook(int x, int y, Color c): Piece(x, y , c){
     path_ = (this->getColor() == white ? "../graphics/Chess_rlt60.png" : "../graphics/Chess_rdt60.png");
 }
 
+// TODO
 bool Rook::isValidMove(const Rook &rook, const Position &newPosition){
     // jesli sie nie zmieni pozycja
     if(rook.getPosition() == newPosition){ return false;}
@@ -14,6 +15,7 @@ bool Rook::isValidMove(const Rook &rook, const Position &newPosition){
     return true;
 }
 
+// TODO
 bool Rook::move(const Position &position){
     if (!isValidMove(*this, position)){ return false;}
     //if (colllisonInLine())

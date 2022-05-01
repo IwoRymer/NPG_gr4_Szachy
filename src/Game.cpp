@@ -1,22 +1,5 @@
 #include "Game.hpp"
 
-// Ścieżki do grafik
-// BLACK
-const std::string pathBPawn = "../graphics/Chess_pdt60.png";
-const std::string pathBRook = "../graphics/Chess_rdt60.png";
-const std::string pathBKnight = "../graphics/Chess_ndt60.png";
-const std::string pathBBishop = "../graphics/Chess_bdt60.png";
-const std::string pathBKing = "../graphics/Chess_kdt60.png";
-const std::string pathBQueen = "../graphics/Chess_qdt60.png";
-//WHITE
-const std::string pathWPawn = "../graphics/Chess_plt60.png";
-const std::string pathWRook = "../graphics/Chess_rlt60.png";
-const std::string pathWKnight = "../graphics/Chess_nlt60.png";
-const std::string pathWBishop = "../graphics/Chess_blt60.png";
-const std::string pathWKing = "../graphics/Chess_klt60.png";
-const std::string pathWQueen = "../graphics/Chess_qlt60.png";
-
-
 Game::Game(): r1(0, 0, black){
     board.init();
     board.drawBackground();
@@ -27,7 +10,9 @@ Game::Game(): r1(0, 0, black){
             field[j][i] = nullptr;
         }
     }
+    // TODO - trzeba jaką sesnsowną metode rysowania na poczatku wszystkich figur
     field[0][0] = &r1;
+    board.drawPNG(0, r1.getPath());
     /* // CZARNE FIGURY
      for(int i = 8; i <= 15; i++)
          board.drawPNG(i, pathBPawn);
@@ -52,7 +37,7 @@ Game::Game(): r1(0, 0, black){
      board.drawPNG(60, pathWKing);*/
 }
 
-void Game::movePNG(const Piece* piece, Position &posOld, const Position &posNew){
+void Game::movePNG(const Piece* piece, const Position &posOld, const Position &posNew){
     board.movePNG(posOld, posNew, piece->getPath());
     board.undoPieceRender(posOld.xPos, posOld.yPos);
 }
@@ -61,12 +46,8 @@ Piece* Game::getField (const Position &pos) const{
     return field[pos.yPos][pos.xPos];
 }
 
-void Game::changePositionOnField(Position oldPos, Position newPos){
+// TODO - czy figury powinny znać swoje miejsce, jeśli mamy od tego tablice ????
+void Game::changePositionOnField(const Position &oldPos, const Position &newPos){
     field[newPos.yPos][newPos.xPos] = field[oldPos.yPos][oldPos.xPos];
     field[oldPos.yPos][oldPos.xPos] = nullptr;
 }
-
-void Game::draw(){
-    //board.drawPNG((r1.getYPosition()*8) + r1.getXPosition(), r1.getPath());
-
-};

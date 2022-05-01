@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <string>
 
-static char chessBoard[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
+/* char chessBoard[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'},
@@ -12,24 +12,20 @@ static char chessBoard[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'}
-};
+};*/
 
+// Reprezentacja pozycji x,y na planszy
 struct Position{
     Position(int a, int b): xPos{a}, yPos{b} {}
-    bool operator==(const Position &other) const{
-        if (this->xPos == other.xPos && this->yPos == other.yPos)
-            return true;
-        return false;
-    }
-    bool operator!=(const Position &other) const {
-        return !(*this == other);
-    }
+    bool operator==(const Position &other) const;
+    bool operator!=(const Position &other) const;
     int xPos, yPos;
 };
 
+// Typ wyliczeniowy - kolor figur
 enum Color{ white = 0, black};
 
-// Defnicje w pliku Game.cpp
+
 extern const std::string pathBPawn;
 extern const std::string pathBRook;
 extern const std::string pathBKnight;

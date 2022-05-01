@@ -3,15 +3,16 @@
 
 #include "window.hpp"
 
+// Pownien byś singleton ale lenistwo
 class Game{
 public:
     Game();
 
-    void draw();
+    // Porusza obrazem
+    void movePNG(const Piece* piece, const Position &posOld, const Position &posNew);
 
-    void movePNG(const Piece* piece, Position &posOld, const Position &posNew);
+    void changePositionOnField(const Position &oldPos, const Position &newPos);
 
-    void changePositionOnField(Position oldPos, Position newPos);
     Piece* getField (const Position &pos) const;
 
 public:

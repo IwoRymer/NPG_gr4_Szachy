@@ -4,24 +4,27 @@
 void mainLoop::run(){
     Game game;
 
-    bool isRuning = true;
+    bool isRunning = true;
 
     Piece* clickedPiece = nullptr;
+    // Potrzebene do myszki
     Position oldPos(0,0), newPos(0,0);
 
-    game.draw();
-    while (isRuning){
+    while (isRunning){
         while(SDL_WaitEvent(&game.event)) {
+            // Zamkniecie aplikacji
             if (game.event.type == SDL_QUIT) {
-                isRuning = false; break;
+                isRunning = false; break;
             }
+
             else if (game.event.type == SDL_MOUSEBUTTONDOWN) {
                 SDL_GetMouseState(&oldPos.xPos, &oldPos.yPos);
                 oldPos.xPos /= 80;
                 oldPos.yPos /= 80;
                 std::cout << "oldX: " << oldPos.xPos << " oldY: " << oldPos.yPos << std::endl;
-                clickedPiece = game.getField(oldPos);
+                clickedPiece = game.getField(oldPos); // MOŻE BYĆ NULLPTR
             }
+
             else if (game.event.type == SDL_MOUSEBUTTONUP) {
                 SDL_GetMouseState(&newPos.xPos, &newPos.yPos);
                 newPos.xPos /= 80;
@@ -32,6 +35,7 @@ void mainLoop::run(){
                     game.changePositionOnField(oldPos, newPos);
                 }
             }
+
         }
     }
 }

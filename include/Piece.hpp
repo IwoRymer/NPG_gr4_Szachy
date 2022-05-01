@@ -1,7 +1,7 @@
 #ifndef CHESS_PIECE_HPP
 #define CHESS_PIECE_HPP
 
-#include <vector>
+//#include <vector>
 
 #include "globalVariables.h"
 
@@ -13,7 +13,8 @@ public:
 
     virtual bool move(const Position &position) = 0;
 
-    void changePosition(Position pos){ position_ = pos;}
+    //void changePosition(Position pos){ position_ = pos;}
+
     // Getters
     Position getPosition() const{ return position_;}
     int getXPosition() const{ return position_.xPos;}
@@ -21,6 +22,8 @@ public:
 
     char getSymbol() const{ return symbol_;}
     Color getColor() const{ return color_;}
+
+    // Path - scieżka do pliku .png
     std::string getPath() const{ return path_;}
 
     virtual bool isKing() const { return false;}
@@ -30,7 +33,8 @@ public:
 private:
     Position position_;
     Color color_;
-protected:
+
+protected: // by można zmieniać w klasach pochodnych
     char symbol_;
     std::string path_;
 };
