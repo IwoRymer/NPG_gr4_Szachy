@@ -1,11 +1,9 @@
-#include "src/App.cpp"
-#include "include/SDL2/SDL.h"
+#include "mainLoop.hpp"
 #include <iostream>
-#include <windows.h>
 
 
 int main(int argc, char* argv []) {
+    mainLoop::run();
 
-    App::run();
     return 0;
 }
