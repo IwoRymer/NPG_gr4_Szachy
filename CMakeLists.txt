@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(testS)
+project(Szachy)
 
 set(CMAKE_CXX_STANDARD 20)
 

@@ -10,7 +10,6 @@
 #include "Piece.hpp"
 #include "pieces/Rook.hpp"
 #include "globalVariables.h"
-#include "SDL2/SDL_image.h"
 
 class Window{
 public:
@@ -22,6 +21,7 @@ public:
     // rysuje szachownice
     void drawBackground();
 
+    // Rysuje figury na szchownicy
     // pola jako liczby od 0 -> 63
     void drawPNG(int pos, const std::string &path);
 
@@ -30,8 +30,6 @@ public:
 public:
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
-    //SDL_Rect rect;
-    //SDL_Surface* screenSurface;
 };
 
 #endif //CHESS_BOARD_HPP

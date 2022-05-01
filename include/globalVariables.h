@@ -2,6 +2,7 @@
 #define CHESS_GLOBALVARIABLES_H
 
 #include <unordered_map>
+#include <string>
 
 static char chessBoard[8][8] = {{'-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'-', '-', '-', '-', '-', '-', '-', '-'},
@@ -27,5 +28,21 @@ struct Position{
 };
 
 enum Color{ white = 0, black};
+
+// Defnicje w pliku Game.cpp
+extern const std::string pathBPawn;
+extern const std::string pathBRook;
+extern const std::string pathBKnight;
+extern const std::string pathBBishop;
+extern const std::string pathBKing;
+extern const std::string pathBQueen;
+//WHITE
+extern const std::string pathWPawn;
+extern const std::string pathWRook;
+extern const std::string pathWKnight;
+extern const std::string pathWBishop;
+extern const std::string pathWKing;
+extern const std::string pathWQueen;
+
 
 #endif //CHESS_GLOBALVARIABLES_H
