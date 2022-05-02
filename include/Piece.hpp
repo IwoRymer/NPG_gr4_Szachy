@@ -26,6 +26,9 @@ public:
     // Path - scieżka do pliku .png
     std::string getPath() const{ return path_;}
 
+    //TODO - usunąć
+    void changePath(const std::string &s){path_ = s; }
+
     virtual bool isKing() const { return false;}
 
     virtual ~Piece() = default;

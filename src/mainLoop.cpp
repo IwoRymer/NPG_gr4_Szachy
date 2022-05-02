@@ -30,7 +30,7 @@ void mainLoop::run(){
                 newPos.xPos /= 80;
                 newPos.yPos /= 80;
                 std::cout << "newX: " << newPos.xPos << " newY: " << newPos.yPos << std::endl;
-                if(clickedPiece) {
+                if(clickedPiece && newPos != oldPos) {
                     game.movePNG(clickedPiece, oldPos, newPos);
                     game.changePositionOnField(oldPos, newPos);
                 }
