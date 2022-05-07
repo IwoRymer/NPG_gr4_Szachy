@@ -22,4 +22,4 @@ Plik piece.hpp zawiera:
 Struktura Position zawiera składowe x, y reprezentujące pozycje na planszy(kolejnośc według ukałdu
 współrzędnych y - wiersz, x - kolumna).
 Typ wyliczeniowy Color określa kolor figury: white, black.
-Klasa Piece jest klasą macierzystą dla wsyzstkich figur.
+Klasa Piece jest klasą macierzystą dla wszystkich figur.
