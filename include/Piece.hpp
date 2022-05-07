@@ -1,7 +1,7 @@
 #ifndef CHESS_PIECE_HPP
 #define CHESS_PIECE_HPP
 
-//#include <vector>
+#include <vector>
 
 #include "globalVariables.h"
 
@@ -28,6 +28,8 @@ public:
 
     //TODO - usunąć
     void changePath(const std::string &s){path_ = s; }
+
+    virtual bool isValidMove(const Position & newPosition, const Piece** board) = 0;
 
     virtual bool isKing() const { return false;}
 
