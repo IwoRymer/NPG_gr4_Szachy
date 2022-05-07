@@ -20,6 +20,7 @@ struct Position{
     bool operator==(const Position &other) const;
     bool operator!=(const Position &other) const;
     Position operator-(const Position &other) const;
+    Position::operator+(const Position& other) const;
     //quaters of relative pos
     bool q1(){return xPos > 0 and yPos > 0;};
     bool q2(){return xPos < 0 and yPos > 0;};

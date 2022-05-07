@@ -15,6 +15,10 @@ Position Position::operator-(const Position& other) const {
 
     return Position(this->xPos - other.xPos,this->yPos - other.yPos);
 }
+Position Position::operator+(const Position& other) const {
+
+    return Position(this->xPos + other.xPos,this->yPos + other.yPos);
+}
 
 
 
