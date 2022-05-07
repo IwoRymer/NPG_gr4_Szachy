@@ -7,7 +7,7 @@
 
 
 #include "Piece.hpp"
-#include "pieces/Rook.hpp"
+#include "pieces/rook.hpp"
 #include "globalVariables.h"
 
 class Window{
