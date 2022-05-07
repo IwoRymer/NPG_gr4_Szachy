@@ -6,14 +6,14 @@ Rook::Rook(int x, int y, Color c): Piece(x, y , c){
 }
 
 // TODO
-bool Rook::isValidMove(const Rook &rook, const Position &newPosition){
-    // jesli sie nie zmieni pozycja
-    if(rook.getPosition() == newPosition){ return false;}
-    // jak zmieni sie x i y
-    if (rook.getPosition().xPos != newPosition.xPos && rook.getPosition().yPos != newPosition.yPos)
-        return false;
-    return true;
-}
+bool Rook::isValidMove(const Position & newPosition, const Piece** board){
+// jesli sie nie zmieni pozycja
+if(this->getPosition() == newPosition){ return false;}
+// jak zmieni sie x i y
+if (this->getPosition().xPos != newPosition.xPos && this->getPosition().yPos != newPosition.yPos){return false;}
+Position relPosition();
+return true;
+};
 
 // TODO
 bool Rook::move(const Position &position){
@@ -21,3 +21,5 @@ bool Rook::move(const Position &position){
     //if (colllisonInLine())
     return false;
 }
+
+

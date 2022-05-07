@@ -11,7 +11,8 @@ public:
     bool move(const Position &position) override;
 
     // zasady ruchu wiezy
-    static bool isValidMove(const Rook &rook, const Position &position);
+    bool isValidMove(const Position & newPosition, const Piece** board) override;
+
 };
 
 
