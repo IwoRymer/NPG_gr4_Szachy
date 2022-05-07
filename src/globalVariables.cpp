@@ -10,6 +10,14 @@ bool Position::operator!=(const Position &other) const {
     return !(*this == other);
 }
 
+//Czy Dobra kolejność odejmowania?
+Position Position::operator-(const Position& other) const {
+
+    return Position(this->xPos - other.xPos,this->yPos - other.yPos);
+}
+
+
+
 // Ścieżki do grafik
 // BLACK
 const std::string pathBPawn = "../graphics/Chess_pdt60.png";
