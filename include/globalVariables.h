@@ -27,6 +27,8 @@ struct Position{
 enum Color{ white = 0, black};
 
 
+
+
 extern const std::string pathBPawn;
 extern const std::string pathBRook;
 extern const std::string pathBKnight;
