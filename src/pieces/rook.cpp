@@ -26,7 +26,7 @@ if(relPosition.xp()){
             return false;}
 }
 if(relPosition.xm()){
-        for(int i = 1; i > relPosition.yPos; i--){
+        for(int i = -1; i > relPosition.yPos; i--){
             if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
                 return false;}
     }
@@ -37,7 +37,7 @@ if(relPosition.yp()){
                 return false;}
     }
 if(relPosition.ym()){
-        for(int i = 1; i > relPosition.xPos; i--){
+        for(int i = -1; i > relPosition.xPos; i--){
             if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
                 return false;}
     }
