@@ -29,7 +29,7 @@ public:
     //TODO - usunąć
     void changePath(const std::string &s){path_ = s; }
 
-    virtual bool isValidMove(const Position & newPosition, const Piece**& board) = 0;
+    virtual bool isValidMove(const Position & newPosition, const Piece***& board) = 0;
 
     virtual bool isKing() const { return false;}
 
