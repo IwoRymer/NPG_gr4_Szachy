@@ -16,10 +16,7 @@ return true;
 };
 
 // TODO
-bool Rook::move(const Position &position){
-    if (!isValidMove(*this, position)){ return false;}
-    //if (colllisonInLine())
-    return false;
+
 }
 
 

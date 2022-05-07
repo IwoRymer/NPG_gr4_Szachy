@@ -8,8 +8,6 @@ public:
     // konstruktor
     Rook(int x, int y, Color c);
 
-    bool move(const Position &position) override;
-
     // zasady ruchu wiezy
     bool isValidMove(const Position & newPosition, const Piece** board) override;
 
