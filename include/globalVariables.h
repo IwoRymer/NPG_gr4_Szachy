@@ -20,6 +20,17 @@ struct Position{
     bool operator==(const Position &other) const;
     bool operator!=(const Position &other) const;
     Position operator-(const Position &other) const;
+    //quaters of relative pos
+    bool q1(){return xPos > 0 and yPos > 0;};
+    bool q2(){return xPos < 0 and yPos > 0;};
+    bool q3(){return xPos < 0 and yPos < 0;};
+    bool q4(){return xPos > 0 and yPos < 0;};
+    //lines of relative pos
+    bool xp(){return xPos > 0 and yPos == 0;};
+    bool xm(){return xPos < 0 and yPos == 0;};
+    bool yp(){return xPos == 0 and yPos > 0;};
+    bool ym(){return xPos == 0 and yPos < 0;};
+    //Zostaw tu signed int
     int xPos, yPos;
 };
 
