@@ -6,18 +6,4 @@ Knight::Knight(int x, int y, Color c): Piece(x, y , c){
 }
 
 // TODO
-bool Knight::isValidMove(const Knight &knight, const Position &newPosition){
-    // jesli sie nie zmieni pozycja
-    if(knight.getPosition() == newPosition){ return false;}
-    // jak zmieni sie x i y
-    if (knight.getPosition().xPos != newPosition.xPos && knight.getPosition().yPos != newPosition.yPos)
-        return false;
-    return true;
-}
 
-// TODO
-bool Knight::move(const Position &position){
-    if (!isValidMove(*this, position)){ return false;}
-    //if (colllisonInLine())
-    return false;
-}
