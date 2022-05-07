@@ -1,5 +1,19 @@
 #include "../include/Piece.hpp"
 
+
+bool Piece::move(const Position& newPosition, Piece***& board) {
+
+    if(isValidMove(newPosition, board)){
+        this->position_ = newPosition;
+        board[newPosition.yPos][newPosition.xPos] = this;
+        return true;
+    }
+    return false;
+}
+
+
+
+
 // Może sie przyda - smieci z konsolowej wersji
 
 // sprawdzone dziala, sprwadza czy pomiedzy ruchem w lini znajdują sie jakieś figury

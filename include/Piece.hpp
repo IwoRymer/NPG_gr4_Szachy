@@ -11,8 +11,7 @@ public:
     // first x, y cordinate
     Piece(int x, int y, Color c): position_(x, y), color_{c} {}
 
-    virtual bool move(const Position &position) = 0;
-
+    bool move(const Position &newPosition, Piece***& board);
     //void changePosition(Position pos){ position_ = pos;}
 
     // Getters
@@ -23,15 +22,19 @@ public:
     char getSymbol() const{ return symbol_;}
     Color getColor() const{ return color_;}
 
+    //Setters
+
     // Path - scieżka do pliku .png
     std::string getPath() const{ return path_;}
 
     //TODO - usunąć
     void changePath(const std::string &s){path_ = s; }
 
-    virtual bool isValidMove(const Position & newPosition, const Piece***& board) = 0;
+    //Powinno byc const Piece***& ale nie wiem jak zrobic move kiedy tu jest const
+    virtual bool isValidMove(const Position & newPosition, Piece***& board) const = 0;
 
-    virtual bool isKing() const { return false;}
+
+    //virtual bool isKing() const { return false;}
 
     virtual ~Piece() = default;
 

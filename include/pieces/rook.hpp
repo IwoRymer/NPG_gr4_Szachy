@@ -9,7 +9,7 @@ public:
     Rook(int x, int y, Color c);
 
     // zasady ruchu wiezy
-    bool isValidMove(const Position & newPosition, const Piece***& board) override;
+    bool isValidMove(const Position & newPosition, Piece***& board) const override;
 
 };
 

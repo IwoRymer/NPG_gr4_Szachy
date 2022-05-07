@@ -6,7 +6,7 @@ Rook::Rook(int x, int y, Color c): Piece(x, y , c){
 }
 
 // TODO
-bool Rook::isValidMove(const Position & newPosition, const Piece***& board){
+bool Rook::isValidMove(const Position & newPosition, Piece***& board) const{
 // jesli sie nie zmieni pozycja
 if(this->getPosition() == newPosition){ return false;}
 // jak zmieni sie x i y
@@ -22,23 +22,23 @@ Position relPosition = newPosition - this->getPosition();
 
 if(relPosition.xp()){
     for(int i = 1; i < relPosition.yPos; i++){
-        if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t)
+        if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
             return false;}
 }
 if(relPosition.xm()){
         for(int i = 1; i > relPosition.yPos; i--){
-            if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t)
+            if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
                 return false;}
     }
 
 if(relPosition.yp()){
         for(int i = 1; i < relPosition.xPos; i++){
-            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t)
+            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
                 return false;}
     }
 if(relPosition.ym()){
         for(int i = 1; i > relPosition.xPos; i--){
-            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t)
+            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
                 return false;}
     }
 
