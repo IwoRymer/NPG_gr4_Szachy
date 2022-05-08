@@ -7,7 +7,7 @@ class Queen : public Piece{
 public:
     // konstruktor
     Queen(int x, int y, Color c);
-
+    bool isValidMove(const Position & newPosition, Piece***& board) const;
 };
 
 #endif //CHESS_QUEEN_HPP
