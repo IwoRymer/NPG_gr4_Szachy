@@ -11,7 +11,7 @@ bool Bishop::isValidMove(const Position & newPosition, Piece***& board) const{
 // jesli sie nie zmieni pozycja
     if(this->getPosition() == newPosition){ return false;}
 // jak zmieni sie x i y
-    if (newPosition.xPos - this->getPosition().xPos == newPosition.yPos - this->getPosition().yPos){return false;}
+    if (newPosition.xPos - this->getPosition().xPos != newPosition.yPos - this->getPosition().yPos){return false;}
 
     Position relPosition = newPosition - this->getPosition();
 /**
