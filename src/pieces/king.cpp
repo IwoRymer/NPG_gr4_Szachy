@@ -7,3 +7,21 @@ King::King(int x, int y, Color c): Piece(x, y , c){
 
 // TODO
 
+bool King::isValidMove(const Position & newPosition, Piece***& board) const{
+// jesli sie nie zmieni pozycja
+    if(this->getPosition() == newPosition){ return false;}
+// jak zmieni sie x i y
+    Position relPosition = newPosition - this->getPosition();
+    if (relPosition.xPos > 1 || relPosition.xPos < -1 || relPosition.yPos > 1 || relPosition.yPos < -1){return false;}
+
+    if(board[newPosition.yPos][newPosition.xPos] != std::nullptr_t()){return false;};
+
+
+
+
+
+
+
+
+    return true;
+};
