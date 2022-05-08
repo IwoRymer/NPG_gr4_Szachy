@@ -9,7 +9,7 @@ public:
     Bishop(int x, int y, Color c);
 
 
-
+    bool isValidMove(const Position & newPosition, Piece***& board) const;
 };
 
 #endif //CHESS_BISHOP_HPP
