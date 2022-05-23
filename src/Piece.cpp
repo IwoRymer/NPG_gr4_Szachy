@@ -1,10 +1,15 @@
 #include "../include/Piece.hpp"
 
 
-bool Piece::move(const Position& newPosition, Piece***& board) {
+#include <iostream>
 
-    if(isValidMove(newPosition, board)){
+bool Piece::move(const Position& newPosition, Piece* (&board)[8][8] ) {
+
+    if(this->isValidMove(newPosition, board)){
         this->position_ = newPosition;
+
+        // ERROR - SEG FAULT
+        // board[newPosition.yPos][newPosition.xPos] użcyie tego daje sqg fault
         board[newPosition.yPos][newPosition.xPos] = this;
         return true;
     }

@@ -7,7 +7,7 @@ King::King(int x, int y, Color c): Piece(x, y , c){
 
 // TODO
 
-bool King::isValidMove(const Position & newPosition, Piece***& board) const{
+bool King::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) const{
 // jesli sie nie zmieni pozycja
     if(this->getPosition() == newPosition){ return false;}
 // jak zmieni sie x i y

@@ -6,6 +6,8 @@ void mainLoop::run(){
 
     bool isRunning = true;
 
+    Color turn = white;
+
     Piece* clickedPiece = nullptr;
     // Potrzebene do myszki
     Position oldPos(0,0), newPos(0,0);
@@ -21,7 +23,7 @@ void mainLoop::run(){
                 SDL_GetMouseState(&oldPos.xPos, &oldPos.yPos);
                 oldPos.xPos /= 80;
                 oldPos.yPos /= 80;
-                std::cout << "oldX: " << oldPos.xPos << " oldY: " << oldPos.yPos << std::endl;
+
                 clickedPiece = game.getField(oldPos); // MOŻE BYĆ NULLPTR
             }
 
@@ -29,13 +31,25 @@ void mainLoop::run(){
                 SDL_GetMouseState(&newPos.xPos, &newPos.yPos);
                 newPos.xPos /= 80;
                 newPos.yPos /= 80;
-                std::cout << "newX: " << newPos.xPos << " newY: " << newPos.yPos << std::endl;
-                if(clickedPiece && newPos != oldPos) {
-                    game.movePNG(clickedPiece, oldPos, newPos);
-                    game.changePositionOnField(oldPos, newPos);
+
+                if (clickedPiece == nullptr)
+                    std::cout << "Error: No piece on this square" << std::endl;
+
+                else if(clickedPiece->getColor() != turn)
+                    std::cout << "Error: Wrong color of the piece" << std::endl;
+
+                else if(newPos == oldPos)
+                    std::cout << "Error: The position was the same" << std::endl;
+
+                else if(!clickedPiece->move(newPos, game.field))
+                    std::cout << "Error: this move is not possible" << std::endl;
+
+                else { // Poruszanie figurami
+                    game.movePiece(oldPos, newPos);
+                    turn = static_cast<Color>(!turn);
                 }
             }
 
         }
-    }
+    }// end of while(isRunning)
 }

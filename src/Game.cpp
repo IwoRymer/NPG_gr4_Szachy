@@ -6,14 +6,15 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
             P7(6, 1, black), P8(7, 1, black),
             S1(1, 0, black), S2(6, 0, black),
             G1(2, 0, black), G2(5, 0, black),
-            Queen(3, 0, black), King(4, 0, black),
+            Q1(3, 0, black), K1(4, 0, black),
             r1(0, 7, white), r2(7, 7, white),
             p1(0, 6, white), p2(1, 6, white), p3(2, 6, white),
             p4(3, 6, white), p5(4, 6, white), p6(5, 6, white),
             p7(6, 6, white), p8(7, 6, white),
             s1(1, 7, white), s2(6, 7, white),
             g1(2, 7, white), g2(5, 7, white),
-            queen(3, 7, white), king(4, 0, white){
+            q1(3, 7, white), k1(4, 0, white){
+
     board.init();
     board.drawBackground();
     for (int i = 2; i < 8; i++)
@@ -33,8 +34,8 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     field[0][2] = &G1;
     field[0][5] = &G2;
 
-    field[0][3] = &Queen;
-    field[0][4] = &King;
+    field[0][3] = &Q1;
+    field[0][4] = &K1;
 
     field[1][0] = &P1;
     field[1][1] = &P2;
@@ -46,7 +47,7 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     field[1][7] = &P8;
 
     // White
-    field[6][0] = &r1;
+    field[7][0] = &r1;
     field[7][7] = &r2;
 
     field[7][1] = &s1;
@@ -55,8 +56,8 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     field[7][2] = &g1;
     field[7][5] = &g2;
 
-    field[7][3] = &queen;
-    field[7][4] = &king;
+    field[7][3] = &q1;
+    field[7][4] = &k1;
 
     field[6][0] = &p1;
     field[6][1] = &p2;
@@ -76,12 +77,12 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     P6.changePath(pathBPawn);
     P7.changePath(pathBPawn);
     P8.changePath(pathBPawn);
-    G1.changePath(pathBBishop);
-    G2.changePath(pathBBishop);
+    //G1.changePath(pathBBishop);
+    //G2.changePath(pathBBishop);
     S1.changePath(pathBKnight);
     S2.changePath(pathBKnight);
-    Queen.changePath(pathBQueen);
-    King.changePath(pathBKing);
+    Q1.changePath(pathBQueen);
+    K1.changePath(pathBKing);
     p1.changePath(pathWPawn);
     p2.changePath(pathWPawn);
     p3.changePath(pathWPawn);
@@ -90,12 +91,12 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     p6.changePath(pathWPawn);
     p7.changePath(pathWPawn);
     p8.changePath(pathWPawn);
-    g1.changePath(pathWBishop);
-    g2.changePath(pathWBishop);
+   // g1.changePath(pathWBishop);
+    //g2.changePath(pathWBishop);
     s1.changePath(pathWKnight);
     s2.changePath(pathWKnight);
-    queen.changePath(pathWQueen);
-    king.changePath(pathWKing);
+    q1.changePath(pathWQueen);
+    k1.changePath(pathWKing);
     // ----------------------------
 
     board.drawPNG(0, R1.getPath());
@@ -104,8 +105,8 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     board.drawPNG(6, S2.getPath());
     board.drawPNG(2, G1.getPath());
     board.drawPNG(5, G2.getPath());
-    board.drawPNG(3, Queen.getPath());
-    board.drawPNG(4, King.getPath());
+    board.drawPNG(3, Q1.getPath());
+    board.drawPNG(4, K1.getPath());
     for(int i = 8; i <= 15; i++) {
         board.drawPNG(i, pathBPawn);
         board.drawPNG(i + 40, pathWPawn);
@@ -116,44 +117,17 @@ Game::Game(): R1(0, 0, black), R2(7, 0, black),
     board.drawPNG(62, s2.getPath());
     board.drawPNG(58, g1.getPath());
     board.drawPNG(61, g2.getPath());
-    board.drawPNG(59, queen.getPath());
-    board.drawPNG(60, king.getPath());
-
-    /* // CZARNE FIGURY
-     for(int i = 8; i <= 15; i++)
-         board.drawPNG(i, pathBPawn);
-     board.drawPNG(0 , pathBRook);
-     board.drawPNG(7 , pathBRook);
-     board.drawPNG(1, pathBKnight);
-     board.drawPNG(6, pathBKnight);
-     board.drawPNG(2, pathBBishop);
-     board.drawPNG(5, pathBBishop);
-     board.drawPNG(3, pathBQueen);
-     board.drawPNG(4, pathBKing);
-     // WHITE
-     for(int i = 48; i <= 55; i++)
-         board.drawPNG(i, pathWPawn);
-     board.drawPNG(63 , pathWRook);
-     board.drawPNG(56 , pathWRook);
-     board.drawPNG(57, pathWKnight);
-     board.drawPNG(62, pathWKnight);
-     board.drawPNG(58, pathWBishop);
-     board.drawPNG(61, pathWBishop);
-     board.drawPNG(59, pathWQueen);
-     board.drawPNG(60, pathWKing);*/
-}
-
-void Game::movePNG(const Piece* piece, const Position &posOld, const Position &posNew){
-    board.movePNG(posOld, posNew, piece->getPath());
-    board.undoPieceRender(posOld.xPos, posOld.yPos);
+    board.drawPNG(59, q1.getPath());
+    board.drawPNG(60, k1.getPath());
 }
 
 Piece* Game::getField (const Position &pos) const{
     return field[pos.yPos][pos.xPos];
 }
 
-// TODO - czy figury powinny znać swoje miejsce, jeśli mamy od tego tablice ????
-void Game::changePositionOnField(const Position &oldPos, const Position &newPos){
+void Game::movePiece(const Position &oldPos, const Position &newPos){
+    board.drawPNG(oldPos, newPos, this->getField(oldPos)->getPath());
+    board.undoPieceRender(oldPos.xPos, oldPos.yPos);
     field[newPos.yPos][newPos.xPos] = field[oldPos.yPos][oldPos.xPos];
     field[oldPos.yPos][oldPos.xPos] = nullptr;
 }

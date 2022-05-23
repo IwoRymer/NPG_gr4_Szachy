@@ -11,7 +11,7 @@ public:
     // first x, y cordinate
     Piece(int x, int y, Color c): position_(x, y), color_{c} {}
 
-    bool move(const Position &newPosition, Piece***& board);
+    bool move(const Position &newPosition, Piece* (&board)[8][8]);
     //void changePosition(Position pos){ position_ = pos;}
 
     // Getters
@@ -31,8 +31,7 @@ public:
     void changePath(const std::string &s){path_ = s; }
 
     //Powinno byc const Piece***& ale nie wiem jak zrobic move kiedy tu jest const
-    virtual bool isValidMove(const Position & newPosition, Piece***& board) const = 0;
-
+    virtual bool isValidMove(const Position & newPosition, Piece* (&board)[8][8]) const = 0;
 
     //virtual bool isKing() const { return false;}
 

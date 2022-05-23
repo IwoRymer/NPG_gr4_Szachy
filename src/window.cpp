@@ -4,14 +4,13 @@
 
 void Window::init() {
     SDL_Init(SDL_INIT_VIDEO);
-    //SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, 0, &window, &renderer);
     window = SDL_CreateWindow("Chess", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                               SCREEN_WIDTH, SCREEN_WIDTH, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     IMG_Init(IMG_INIT_PNG);
 }
 
-void Window::drawBackground() {
+void Window::drawBackground() const {
     bool white = true;
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
@@ -35,8 +34,8 @@ void Window::drawBackground() {
 }
 
 //działa dobrze
-void Window::drawPNG(int pos, const std::string &path) {
-    std::cout << "drawPNG pos= "<< pos << std::endl;
+void Window::drawPNG(int pos, const std::string &path) const {
+
     SDL_Rect rectangle;
     rectangle.w = SCREEN_WIDTH / 8;
     rectangle.h = SCREEN_HEIGHT / 8;
@@ -44,20 +43,20 @@ void Window::drawPNG(int pos, const std::string &path) {
     rectangle.y = (int) (pos / 8) * rectangle.h;
 
 
-    SDL_Surface *loadedImage = NULL;
+    SDL_Surface *loadedImage = nullptr;
     loadedImage = IMG_Load(path.c_str());
     if (!loadedImage) {
         std::cout << "Image not loaded path:" << path.c_str() << std::endl;
     }
     SDL_Texture *ourPNG = SDL_CreateTextureFromSurface(renderer, loadedImage);
     SDL_FreeSurface(loadedImage);
-    SDL_RenderCopy(renderer, ourPNG, NULL, &rectangle);
+    SDL_RenderCopy(renderer, ourPNG, nullptr, &rectangle);
     SDL_RenderPresent(renderer);
 }
 
 // TODO - połączyć z drawPNG
-void Window::movePNG(const Position oldPos, const Position newPos, const std::string &path){
-    SDL_Surface *loadedImage = NULL;
+void Window::drawPNG(const Position &oldPos, const Position &newPos, const std::string &path) const{
+    SDL_Surface *loadedImage = nullptr;
     loadedImage = IMG_Load(path.c_str());
     if (!loadedImage) {
         std::cout << "Image not loaded path:" << path.c_str() << std::endl;
@@ -65,11 +64,12 @@ void Window::movePNG(const Position oldPos, const Position newPos, const std::st
     SDL_Texture *ourPNG = SDL_CreateTextureFromSurface(renderer, loadedImage);
     SDL_FreeSurface(loadedImage);
     SDL_Rect rNew = {newPos.xPos * 80, newPos.yPos * 80, 80, 80};
-    SDL_Rect rOld = {oldPos.xPos * 80, oldPos.yPos * 80, 80, 80};
 
     SDL_RenderCopy(renderer, ourPNG, NULL, &rNew);
 }
-void Window::undoPieceRender(int x, int y)
+
+
+void Window::undoPieceRender(int x, int y) const
 {
     if ((x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1))
     {
