@@ -8,7 +8,7 @@
 #include "pieces/knight.hpp"
 #include "pieces/queen.hpp"
 
-// Pownien byś singleton ale lenistwo
+// Pownien byś singleton
 class Game{
 public:
     Game();
@@ -22,7 +22,7 @@ public:
     Window board;
     SDL_Event event;
 
-    // NA RAZIE WSZYTKO JEST JAKO WIEŻA bo nie innych jeszcze klas
+    // NA RAZIE WSZYTKO JEST JAKO WIEŻA bo nie ma innych jeszcze klas
     // Duże litery -> black, małe litery -> white
     Rook R1, R2, r1, r2;
     // TODO - pionki
@@ -32,8 +32,8 @@ public:
     // TODO - skoczek
     Rook S1, S2, s1, s2;
     // TODO - królowa król
-    Rook K1, k1;
-    Rook Q1, q1;
+    King K1, k1;
+    Queen Q1, q1;
 };
 
 #endif //TESTS_GAME_HPP

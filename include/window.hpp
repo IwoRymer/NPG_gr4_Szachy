@@ -18,28 +18,23 @@ public:
 
     // powinien byc konstruktor ale trudno
     void init();
+    ~Window();
 
     // rysuje kolory na szachownicy
     void drawBackground() const;
 
     // Rysuje figury na szchownicy
     // pola jako liczby od 0 -> 63
-    // tak wiem  glupie
+    // tak, wiem glupie
     void drawPNG(int pos, const std::string &path) const;
     void drawPNG(const Position &oldPos, const Position &newPos, const std::string &path) const;
 
-    // zmazuje teksture figury
     void undoPieceRender(int x, int y) const;
 
-    // Kopiuje
-    //void movePNG(const Position oldPos, const Position newPos, const std::string &path) const;
-
-    // wyczyszcza textury i zwalnia pamięć
-    ~Window();
 
 public:
-    SDL_Window* window = NULL;
-    SDL_Renderer* renderer = NULL;
+    SDL_Window* window = nullptr;
+    SDL_Renderer* renderer = nullptr;
 };
 
 #endif //CHESS_BOARD_HPP

@@ -16,11 +16,10 @@ void Window::drawBackground() const {
 
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            if (white) {
+            if (white)
                 SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            } else {
+            else
                 SDL_SetRenderDrawColor(renderer, 155, 103, 60, 255);
-            }
             white = !white;
             SDL_Rect rectangle = {i * SCREEN_WIDTH / 8,
                                   j * SCREEN_HEIGHT / 8,
@@ -33,7 +32,7 @@ void Window::drawBackground() const {
     SDL_RenderPresent(renderer);
 }
 
-//działa dobrze
+
 void Window::drawPNG(int pos, const std::string &path) const {
 
     SDL_Rect rectangle;
@@ -43,42 +42,39 @@ void Window::drawPNG(int pos, const std::string &path) const {
     rectangle.y = (int) (pos / 8) * rectangle.h;
 
 
-    SDL_Surface *loadedImage = nullptr;
+    SDL_Surface *loadedImage;
     loadedImage = IMG_Load(path.c_str());
-    if (!loadedImage) {
+
+    if (!loadedImage)
         std::cout << "Image not loaded path:" << path.c_str() << std::endl;
-    }
+
     SDL_Texture *ourPNG = SDL_CreateTextureFromSurface(renderer, loadedImage);
     SDL_FreeSurface(loadedImage);
     SDL_RenderCopy(renderer, ourPNG, nullptr, &rectangle);
     SDL_RenderPresent(renderer);
 }
 
-// TODO - połączyć z drawPNG
 void Window::drawPNG(const Position &oldPos, const Position &newPos, const std::string &path) const{
-    SDL_Surface *loadedImage = nullptr;
+    SDL_Surface *loadedImage;
     loadedImage = IMG_Load(path.c_str());
-    if (!loadedImage) {
+
+    if (!loadedImage)
         std::cout << "Image not loaded path:" << path.c_str() << std::endl;
-    }
+
     SDL_Texture *ourPNG = SDL_CreateTextureFromSurface(renderer, loadedImage);
     SDL_FreeSurface(loadedImage);
     SDL_Rect rNew = {newPos.xPos * 80, newPos.yPos * 80, 80, 80};
 
-    SDL_RenderCopy(renderer, ourPNG, NULL, &rNew);
+    SDL_RenderCopy(renderer, ourPNG, nullptr, &rNew);
 }
 
 
 void Window::undoPieceRender(int x, int y) const
 {
     if ((x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1))
-    {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    }
     else
-    {
         SDL_SetRenderDrawColor(renderer, 155, 103, 60, 255);
-    }
     SDL_Rect rectangle = { x * SCREEN_WIDTH / 8,
                            y * SCREEN_HEIGHT / 8,
                            SCREEN_WIDTH / 8,

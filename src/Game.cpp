@@ -1,28 +1,26 @@
 #include "Game.hpp"
 
-Game::Game(): R1(0, 0, black), R2(7, 0, black),
-            P1(0, 1, black), P2(1, 1, black), P3(2, 1, black),
-            P4(3, 1, black), P5(4, 1, black), P6(5, 1, black),
-            P7(6, 1, black), P8(7, 1, black),
-            S1(1, 0, black), S2(6, 0, black),
-            G1(2, 0, black), G2(5, 0, black),
-            Q1(3, 0, black), K1(4, 0, black),
-            r1(0, 7, white), r2(7, 7, white),
-            p1(0, 6, white), p2(1, 6, white), p3(2, 6, white),
-            p4(3, 6, white), p5(4, 6, white), p6(5, 6, white),
-            p7(6, 6, white), p8(7, 6, white),
-            s1(1, 7, white), s2(6, 7, white),
-            g1(2, 7, white), g2(5, 7, white),
-            q1(3, 7, white), k1(4, 0, white){
+Game::Game(): R1(0, 0, Color::black), R2(7, 0, Color::black),
+            P1(0, 1, Color::black), P2(1, 1, Color::black), P3(2, 1, Color::black),
+            P4(3, 1, Color::black), P5(4, 1, Color::black), P6(5, 1, Color::black),
+            P7(6, 1, Color::black), P8(7, 1, Color::black),
+            S1(1, 0, Color::black), S2(6, 0, Color::black),
+            G1(2, 0, Color::black), G2(5, 0, Color::black),
+            Q1(3, 0, Color::black), K1(4, 0, Color::black),
+            r1(0, 7, Color::white), r2(7, 7, Color::white),
+            p1(0, 6, Color::white), p2(1, 6, Color::white), p3(2, 6, Color::white),
+            p4(3, 6, Color::white), p5(4, 6, Color::white), p6(5, 6, Color::white),
+            p7(6, 6, Color::white), p8(7, 6, Color::white),
+            s1(1, 7, Color::white), s2(6, 7, Color::white),
+            g1(2, 7, Color::white), g2(5, 7, Color::white),
+            q1(3, 7, Color::white), k1(4, 0, Color::white){
 
     board.init();
     board.drawBackground();
     for (int i = 2; i < 8; i++)
     {
         for (int j = 0; j < 8; j++)
-        {
             field[i][j] = nullptr;
-        }
     }
     // Black
     field[0][0] = &R1;

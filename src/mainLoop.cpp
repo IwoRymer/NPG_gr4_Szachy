@@ -6,15 +6,14 @@ void mainLoop::run(){
 
     bool isRunning = true;
 
-    Color turn = white;
+    Color turn = Color::white;
 
     Piece* clickedPiece = nullptr;
-    // Potrzebene do myszki
+
     Position oldPos(0,0), newPos(0,0);
 
     while (isRunning){
         while(SDL_WaitEvent(&game.event)) {
-            // Zamkniecie aplikacji
             if (game.event.type == SDL_QUIT) {
                 isRunning = false; break;
             }
@@ -46,7 +45,7 @@ void mainLoop::run(){
 
                 else { // Poruszanie figurami
                     game.movePiece(oldPos, newPos);
-                    turn = static_cast<Color>(!turn);
+                    turn = (turn == Color::white ? Color::black : Color::white);
                 }
             }
 
