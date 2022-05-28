@@ -8,6 +8,9 @@ public:
     // konstruktor
     Pawn(int x, int y, Color c);
 
+    bool Pawn::isValidMove(const Position& newPosition, Piece* (&board)[8][8]) const;
+
+    bool hasMoved;
 
 };
 
