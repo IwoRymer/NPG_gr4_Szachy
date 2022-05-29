@@ -10,6 +10,7 @@ bool Piece::move(const Position& newPosition, Piece* (&board)[8][8] ) {
         this->position_ = newPosition;
         board[newPosition.yPos][newPosition.xPos] = this;
         return true;
+        this->pieceMoved();
     }
     return false;
 }
