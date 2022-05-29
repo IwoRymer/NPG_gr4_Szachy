@@ -8,10 +8,10 @@ bool Queen::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) con
 // jesli sie nie zmieni pozycja -> sprawdzane w mainLoop
 
 // jak zmieni sie x i y
-    if ((this->getPosition().xPos != newPosition.xPos && this->getPosition().yPos != newPosition.yPos) \
-    && (newPosition.xPos - this->getPosition().xPos != newPosition.yPos - this->getPosition().yPos)){return false;}
-
     Position relPosition = newPosition - this->getPosition();
+
+    if(abs(relPosition.yPos) != abs(relPosition.xPos) && relPosition.xPos != 0 && relPosition.yPos != 0)
+        return false;
 /**
  * Blok kodu sprawdza przypadki czy
  * 1) w której linii znajduje się nowa pozycja w odniesieniu do pionka
@@ -20,48 +20,114 @@ bool Queen::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) con
 
     //From rook class
     if(relPosition.xp()){
+        std::cout << "----xp-----" << std::endl;
+
         for(int i = 1; i < relPosition.yPos; i++){
-            if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
+            std::cout << "Petla sie wykonuje\n";
+            std::cout << "board[" << (this->getPosition() + Position(i, 0)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+
+            if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != nullptr)
+                return false;
+        }
     }
+
     if(relPosition.xm()){
+        std::cout << "----xm-----" << std::endl;
+
         for(int i = -1; i > relPosition.yPos; i--){
-            if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
+            std::cout << "Petla sie wykonuje\n";
+            std::cout << "board[" << (this->getPosition() + Position(i, 0)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+            if(board[(this->getPosition() + Position(i, 0)).yPos][(this->getPosition() + Position(i, i)).xPos] != nullptr)
+                return false;
+        }
     }
 
     if(relPosition.yp()){
+        std::cout << "----yp-----" << std::endl;
+
         for(int i = 1; i < relPosition.xPos; i++){
-            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
+            std::cout << "Petla sie wykonuje\n";
+            std::cout << "board[" << (this->getPosition() + Position(0, i)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+
+            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != nullptr)
+                return false;
+        }
     }
-    if(relPosition.ym()){
-        for(int i = -1; i > relPosition.xPos; i--){
-            if(board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
+
+    if(relPosition.ym()) {
+        std::cout << "----ym-----" << std::endl;
+
+        for (int i = -1; i > relPosition.xPos; i--) {
+            std::cout << "Petla sie wykonuje\n";
+            std::cout << "board[" << (this->getPosition() + Position(0, i)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+
+            if (board[(this->getPosition() + Position(0, i)).yPos][(this->getPosition() + Position(i, i)).xPos] !=
+                nullptr)
+                return false;
+        }
     }
 
     //from bishop class
+
     if(relPosition.q1()){
+        std::cout << "----Q1-----" << std::endl;
+
         for(int i = 1; i < relPosition.yPos; i++){
-            if(board[(this->getPosition() + Position(i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
-    }
-    if(relPosition.q2()){
-        for(int i = 1; i < relPosition.yPos; i++){
-            if(board[(this->getPosition() + Position(-i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
-    }
-    if(relPosition.q3()){
-        for(int i = -1; i > relPosition.yPos; i--){
-            if(board[(this->getPosition() + Position(i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
-    }
-    if(relPosition.q4()){
-        for(int i = -1; i > relPosition.yPos; i--){
-            if(board[(this->getPosition() + Position(-i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] != std::nullptr_t())
-                return false;}
+
+            std::cout << "board[" << (this->getPosition() + Position(i, i)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+
+            if(board[(this->getPosition() + Position(i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] !=
+               nullptr)
+                return false;
+        }
     }
 
+
+    if(relPosition.q2()){
+        std::cout << "----Q2-----" << std::endl;
+
+        for(int i = 1; i < relPosition.yPos; i++){
+
+            std::cout << "board[" << (this->getPosition() + Position(-i, i)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+
+            if(board[(this->getPosition() + Position(-i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] !=
+               nullptr)
+                return false;
+        }
+    }
+
+    if(relPosition.q3()){
+        std::cout << "----Q3-----" << std::endl;
+
+        for(int i = -1; i > relPosition.yPos; i--){
+
+            std::cout << "board[" << (this->getPosition() + Position(i, i)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(i, i)).xPos << "]\n";
+
+            if(board[(this->getPosition() + Position(i, i)).yPos][(this->getPosition() + Position(i, i)).xPos] !=
+               nullptr)
+                return false;
+        }
+    }
+
+    if(relPosition.q4()){
+        std::cout << "----Q4-----" << std::endl;
+
+        for(int i = -1; i > relPosition.yPos; i--){
+
+            std::cout << "board[" << (this->getPosition() + Position(-i, i)).yPos;
+            std::cout << "][" << (this->getPosition() + Position(-i, i)).xPos << "]\n";
+
+            if(board[(this->getPosition() + Position(-i, i)).yPos][(this->getPosition() + Position(-i, i)).xPos] !=
+               nullptr)
+                return false;
+        }
+    }
     return true;
 };

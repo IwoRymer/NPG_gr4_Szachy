@@ -1,6 +1,6 @@
 #include "../../include/pieces/rook.hpp"
 
-#include <iostream>
+
 
 Rook::Rook(int x, int y, Color c): Piece(x, y , c){
     path_ = (this->getColor() == Color::white ? "../graphics/Chess_rlt60.png" : "../graphics/Chess_rdt60.png");
