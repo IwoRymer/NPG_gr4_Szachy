@@ -38,14 +38,15 @@ void mainLoop::run(){
                     std::cout << "Error: Wrong color of the piece" << std::endl;
 
                 else if(newPos == oldPos)
-                    std::cout << "Error: The position was the same" << std::endl;
+                    std::cout << "Error: The position was the same: board[" << newPos.yPos << "][" << newPos.xPos << "]" << std::endl;
 
                 else if(!clickedPiece->move(newPos, game.field))
-                    std::cout << "Error: this move is not possible" << std::endl;
+                    std::cout << "Error: this move is not possible: board[" << newPos.yPos << "][" << newPos.xPos << "]" << std::endl;
 
                 else { // Poruszanie figurami
                     game.movePiece(oldPos, newPos);
                     turn = (turn == Color::white ? Color::black : Color::white);
+                    //std::cout << "Newpos board[" << newPos.yPos << "][" << newPos.xPos << "]"<< std::endl;
                 }
             }
 
