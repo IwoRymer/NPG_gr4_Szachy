@@ -1,5 +1,6 @@
 #ifndef CHESS_BOARD_HPP
 #define CHESS_BOARD_HPP
+#define SDL_MAIN_HANDLED
 
 #include "SDL2/SDL.h"
 #include <SDL2/SDL_image.h>
