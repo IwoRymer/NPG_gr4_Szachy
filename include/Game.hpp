@@ -30,7 +30,7 @@ public:
     // TODO - goniec
     Bishop G1, G2, g1, g2;
     // TODO - skoczek
-    Rook S1, S2, s1, s2;
+    Knight S1, S2, s1, s2;
     // TODO - królowa król
     King K1, k1;
     Queen Q1, q1;
