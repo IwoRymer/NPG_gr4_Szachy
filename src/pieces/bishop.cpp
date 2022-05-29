@@ -1,6 +1,5 @@
 #include "../../include/pieces/bishop.hpp"
 
-#include <iostream>
 
 Bishop::Bishop(int x, int y, Color c): Piece(x, y , c){
     path_ = (this->getColor() == Color::white ? "../graphics/Chess_blt60.png" : "../graphics/Chess_bdt60.png");
@@ -23,7 +22,8 @@ bool Bishop::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) co
  * 1) w której ćwiartce znajduje się nowa pozycja w odniesieniu do pionka
  * 2) czy w tej skośnej linnii nie znajduje się inny pionek zaczynając od pola obok this* kończąc na polu newPosition
  */
-
+    if(abs(relPosition.yPos) != abs(relPosition.xPos))
+        return false;
 
     if(relPosition.q1()){
         std::cout << "----Q1-----" << std::endl;
