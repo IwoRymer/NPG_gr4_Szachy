@@ -27,11 +27,8 @@ public:
     Rook R1, R2, r1, r2;
     // TODO - pionki
     Rook P1, P2, P3, P4, P5, P6, P7, P8, p1, p2, p3, p4, p5, p6, p7, p8;
-    // TODO - goniec
     Bishop G1, G2, g1, g2;
-    // TODO - skoczek
     Knight S1, S2, s1, s2;
-    // TODO - królowa król
     King K1, k1;
     Queen Q1, q1;
 };
