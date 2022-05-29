@@ -2,6 +2,7 @@
 #define CHESS_GLOBALVARIABLES_H
 
 #include <string>
+#include <iostream>
 
 
 // Reprezentacja pozycji x,y na planszy
