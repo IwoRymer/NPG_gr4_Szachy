@@ -22,8 +22,8 @@ public:
     // Path - scieżka do pliku .png
     std::string getPath() const{ return path_;}
 
-    //TODO - usunąć, po implementacj wszystkich figur
-    void changePath(const std::string &s){path_ = s; }
+    //TODO - usunąć
+    //void changePath(const std::string &s){path_ = s; }
 
     virtual bool isValidMove(const Position & newPosition, Piece* (&board)[8][8]) const = 0;
 

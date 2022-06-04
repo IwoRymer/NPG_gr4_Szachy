@@ -22,10 +22,8 @@ public:
     Window board;
     SDL_Event event;
 
-    // NA RAZIE WSZYTKO JEST JAKO WIEŻA bo nie ma innych jeszcze klas
-    // Duże litery -> black, małe litery -> white
+    // figury
     Rook R1, R2, r1, r2;
-    // TODO - pionki
     Pawn P1, P2, P3, P4, P5, P6, P7, P8, p1, p2, p3, p4, p5, p6, p7, p8;
     Bishop G1, G2, g1, g2;
     Knight S1, S2, s1, s2;

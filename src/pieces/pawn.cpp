@@ -1,15 +1,17 @@
 #include "../../include/pieces/pawn.hpp"
 
 Pawn::Pawn(int x, int y, Color c): Piece(x, y , c){
-    path_ = (this->getColor() == Color::white ? "../graphics/Chess_plt60.png" : "../graphics/Chess_pdt60.png");
+    path_ = (this->getColor() == Color::white ? pathWPawn : pathBPawn);
 }
 
 bool Pawn::isValidMove(const Position& newPosition, Piece* (&board)[8][8]) const {
     Position relPosition = newPosition - this->getPosition();
+
     if(board[newPosition.yPos][newPosition.yPos] == nullptr) {
         // Move without destroying basics
         if (relPosition.xPos != 0) { return false; }
         if (abs(relPosition.yPos) > 2) { return false; }
+
         // Move without destroying details
         if (this->getColor() == Color::black)
         {

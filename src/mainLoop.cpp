@@ -31,7 +31,7 @@ void mainLoop::run(){
                 newPos.xPos /= 80;
                 newPos.yPos /= 80;
 
-                if (clickedPiece == nullptr)
+                if (!clickedPiece)
                     std::cout << "Error: No piece on this square" << std::endl;
 
                 else if(clickedPiece->getColor() != turn)

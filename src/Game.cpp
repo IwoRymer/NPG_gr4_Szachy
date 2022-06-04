@@ -13,7 +13,7 @@ Game::Game(): R1(0, 0, Color::black), R2(7, 0, Color::black),
             p7(6, 6, Color::white), p8(7, 6, Color::white),
             s1(1, 7, Color::white), s2(6, 7, Color::white),
             g1(2, 7, Color::white), g2(5, 7, Color::white),
-            q1(3, 7, Color::white), k1(4, 0, Color::white){
+            q1(3, 7, Color::white), k1(4, 7, Color::white){
 
     board.init();
     board.drawBackground();
@@ -66,7 +66,7 @@ Game::Game(): R1(0, 0, Color::black), R2(7, 0, Color::black),
     field[6][6] = &p7;
     field[6][7] = &p8;
 
-    //TODO usunąc po stworzeniu klas wszystkich figur
+   /* //TODO usunąc po stworzeniu klas wszystkich figur
     P1.changePath(pathBPawn);
     P2.changePath(pathBPawn);
     P3.changePath(pathBPawn);
@@ -95,7 +95,7 @@ Game::Game(): R1(0, 0, Color::black), R2(7, 0, Color::black),
     s2.changePath(pathWKnight);
     q1.changePath(pathWQueen);
     k1.changePath(pathWKing);
-    // ----------------------------
+    // ----------------------------*/
 
     board.drawPNG(0, R1.getPath());
     board.drawPNG(7 , R2.getPath());

@@ -1,12 +1,9 @@
 #include "../../include/pieces/rook.hpp"
 
-
-
 Rook::Rook(int x, int y, Color c): Piece(x, y , c){
-    path_ = (this->getColor() == Color::white ? "../graphics/Chess_rlt60.png" : "../graphics/Chess_rdt60.png");
+    path_ = (this->getColor() == Color::white ? pathWRook : pathBRook);
 }
 
-// TODO
 bool Rook::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) const{
     // jesli sie nie zmieni pozycja -> sprawdzane w mainLoop
     Position relPosition = newPosition - this->getPosition();

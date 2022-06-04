@@ -2,10 +2,9 @@
 
 
 Bishop::Bishop(int x, int y, Color c): Piece(x, y , c){
-    path_ = (this->getColor() == Color::white ? "../graphics/Chess_blt60.png" : "../graphics/Chess_bdt60.png");
+    path_ = (this->getColor() == Color::white ? pathWBishop : pathBBishop);
 }
 
-// TODO
 
 bool Bishop::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) const{
 // czy pozcyja się nie zmieni sprawdzane w mainLoop
@@ -13,8 +12,6 @@ bool Bishop::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) co
 // jak zmieni sie x i y, BLOKUJE RUCHY POPRAWne
     //if (newPosition.xPos - this->getPosition().xPos != newPosition.yPos - this->getPosition().yPos){return false;}
 
-    // TODO
-    // Napisać funkcje czy goniec porusza się po diagonali
 
     Position relPosition = newPosition - this->getPosition();
 /**
