@@ -6,55 +6,35 @@ Pawn::Pawn(int x, int y, Color c): Piece(x, y , c){
 
 bool Pawn::isValidMove(const Position& newPosition, Piece* (&board)[8][8]) const {
     Position relPosition = newPosition - this->getPosition();
-    if (this->hadMoved())
-    {
-        if (this->getColor() == Color::black) {
-            // TODO: Nie wiem który kolor z której strony Tutaj za³o¿e ¿e 0 jest na dole w wierszu 0
-
-            if (relPosition == Position(0, 2)) {
-                if (board[this->getYPosition() + 1][this->getXPosition()] != nullptr || board[this->getYPosition() + 2][this->getXPosition()] != nullptr)
-                    return false;
-                return true;
-            }
-            if (relPosition == Position(0, 1)) {
-                if (board[this->getYPosition() + 1][this->getXPosition()] != nullptr)
-                    return false;
-                return true;
-            }
+    if(board[newPosition.yPos][newPosition.yPos] == nullptr) {
+        // Move without destroying basics
+        if (relPosition.xPos != 0) { return false; }
+        if (abs(relPosition.yPos) > 2) { return false; }
+        // Move without destroying details
+        if (this->getColor() == Color::black)
+        {
+            if(board[this->getYPosition() + 1][this->getXPosition()] != nullptr){return false; }
+            //just checking
+            std::cout<<this->hadMoved()<<std::endl;
+            if(this->hadMoved() != 0 && relPosition.yPos == 2 ){ return false; }
+        }else
+        {
+            if(board[this->getYPosition() - 1][this->getXPosition()] != nullptr){return false; }
+            //checking
+            std::cout<<this->hadMoved()<<std::endl;
+            if(this->hadMoved() != 0 && relPosition.yPos == -2 ){ return false; }
         }
-        else {
-            // TODO: Nie wiem który kolor z której strony Tutaj za³o¿e ¿e 0 jest na dole w wierszu 0
-
-            if (relPosition == Position(0, -2)) {
-                if (board[this->getYPosition() - 1][this->getXPosition()] != nullptr || board[this->getYPosition() -2][this->getXPosition()] != nullptr)
-                    return false;
-                return true;
-            }
-            if (relPosition == Position(0, -1)) {
-                if (board[this->getYPosition() - 1][this->getXPosition()] != nullptr)
-                    return false;
-                return true;
-            }
-        }
-
-    }
-    else {
-        if (this->getColor() == Color::black) {
-            if (relPosition == Position(0, 1)) {
-                if (board[this->getYPosition() + 1][this->getXPosition()] != nullptr)
-                    return false;
-                return true;
-            }
-        }
-        else {
-            if (relPosition == Position(0, -1)) {
-                if (board[this->getYPosition() - 1][this->getXPosition()] = nullptr)
-                    return false;
-                return true;
-            }
+    }else{
+        std::cout<<"destroying protocol XD"<<std::endl;
+        //destroying dependent on color
+        if (this->getColor() == Color::black)
+        {
+            if(relPosition != Position(1,1) && relPosition != Position(-1,1)) {return false;}
+        }else{
+            if(relPosition != Position(1,-1) && relPosition != Position(-1,-1)) {return false;}
         }
     }
-    return false;
+    return true;
 }
 
 
