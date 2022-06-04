@@ -14,6 +14,8 @@ bool Rook::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) cons
     // jak zmieni sie x i y (linia prosta)
     if (relPosition.xPos != 0 && relPosition.yPos != 0)
         return false;
+    // jako ze to warunek ruchu a nie zbicia to spradzam czu na polu konczacym jest jakis pionek
+    //if(board[newPosition.yPos][newPosition.xPos] != nullptr){return false;}
     /**
      * Blok kodu sprawdza przypadki czy
      * 1) w której linii znajduje się nowa pozycja w odniesieniu do pionka

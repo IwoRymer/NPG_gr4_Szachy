@@ -11,8 +11,8 @@ bool King::isValidMove(const Position & newPosition, Piece* (&board)[8][8]) cons
 
 // jak zmieni sie x i y
     Position relPosition = newPosition - this->getPosition();
-    if (abs(relPosition.xPos) > 1 || abs(relPosition.yPos) > 1 ){return false;}
-
+    if (abs(relPosition.yPos) > 1 || abs(relPosition.xPos) > 1){return false;}
+//czy na miejscu jest obiekt
     if(board[newPosition.yPos][newPosition.xPos] != nullptr){return false;};
 
     return true;
