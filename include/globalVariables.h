@@ -7,7 +7,7 @@
 
 // Reprezentacja pozycji x,y na planszy
 struct Position{
-    Position(int a = 0, int b = 0): xPos{a}, yPos{b} {};
+    Position(int x = 0, int y = 0): xPos{x}, yPos{y} {};
 
     bool operator==(const Position &other) const;
     bool operator!=(const Position &other) const;
