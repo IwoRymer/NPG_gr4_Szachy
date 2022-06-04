@@ -27,7 +27,7 @@ public:
 
     virtual bool isValidMove(const Position & newPosition, Piece* (&board)[8][8]) const = 0;
 
-    void pieceMoved(){hasMoved = 1;};
+    void pieceMoved(){hasMoved = true;};
     bool hadMoved() const {return  hasMoved;}
 
     //virtual bool isKing() const { return false;}
@@ -37,7 +37,7 @@ public:
 private:
     Position position_;
     Color color_;
-    bool hasMoved = 0;
+    bool hasMoved = false;
 
 protected: // by można zmieniać w klasach pochodnych
     std::string path_;
