@@ -7,7 +7,7 @@ Pawn::Pawn(int x, int y, Color c): Piece(x, y , c){
 bool Pawn::isValidMove(const Position& newPosition, Piece* (&board)[8][8]) const {
     Position relPosition = newPosition - this->getPosition();
 
-    if(board[newPosition.yPos][newPosition.yPos] == nullptr) {
+    if(board[newPosition.yPos][newPosition.xPos] == nullptr) {
         // Move without destroying basics
         if (relPosition.xPos != 0) { return false; }
         if (abs(relPosition.yPos) > 2) { return false; }
@@ -27,8 +27,9 @@ bool Pawn::isValidMove(const Position& newPosition, Piece* (&board)[8][8]) const
             if(this->hadMoved() != 0 && relPosition.yPos == -2 ){ return false; }
         }
     }else{
-        std::cout<<"destroying protocol XD"<<std::endl;
+        //std::cout<<"no nullptr"<<std::endl;
         //destroying dependent on color
+        std::cout << board[newPosition.yPos][newPosition.xPos]  << std::endl;
         if (this->getColor() == Color::black)
         {
             if(relPosition != Position(1,1) && relPosition != Position(-1,1)) {return false;}

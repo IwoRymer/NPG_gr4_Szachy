@@ -7,8 +7,9 @@ bool Piece::move(const Position& newPosition, Piece* (&board)[8][8] ) {
 
     // Sprawdza czy kolor figur jest taki sam
     // pierwsze sprawdzanie czy nie jest nullptr!
-    if (board[newPosition.yPos][newPosition.xPos] && this->getColor() == board[newPosition.yPos][newPosition.xPos]->getColor())
-        return false;
+    if (board[newPosition.yPos][newPosition.xPos] && this->getColor() == board[newPosition.yPos][newPosition.xPos]->getColor()){
+        std::cout << "zly kolor" << std::endl;
+        return false;}
 
     else if(this->isValidMove(newPosition, board)){
         this->position_ = newPosition;
